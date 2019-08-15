@@ -21,12 +21,21 @@ input[type="text"] {
   margin: 10px 0;
 }
 
-img {
+.searchImg {
   border-radius: 4px;
   padding: 5px;
   width: 120px;
 }
-img:hover {
+.searchImg:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.lstImg {
+  border-radius: 4px;
+  padding: 5px;
+  width: 120px;
+}
+.lstImg:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
@@ -40,6 +49,75 @@ img:hover {
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
+}
+
+.div-table {
+  display: table;         
+  width: auto;         
+  background-color:  white;         
+  border: 1px solid  white;         
+  border-spacing: 5px;
+}
+.div-table-row {
+  display: table-row;
+  width: auto;
+  clear: both;
+}
+.div-table-col {
+  float: left;
+  display: table-column;         
+  width: 200px;         
+  background-color:  white;  
+}
+.div-table-col2 {
+  float: left;
+  display: table-column;         
+  background-color:  white;  
+}
+
+.buttonSale {
+  background-color: #008CBA;
+  width: 250px;
+  height: 30px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Adiciona (>) para cada list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: ">\00a0";
+}
+
+/* Color de los hipervínculos */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Cambia color con el mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 800px){

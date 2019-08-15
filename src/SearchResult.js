@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/search.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import SearchBox from './SearchBox';
+import Breadcrumbs from './Breadcrumbs';
 const formatter = new Intl.NumberFormat('es-CL', {
   style: 'currency',
   currency: 'CLP',
@@ -19,24 +20,39 @@ class SearchResult extends Component {
     super(props);
     this.state = {
       query: "",
-      productos: []
+      productos: [],
+      breadCrumbs: []
     };
   }
 
   findProduct=(sQuery)=> {
     this.search(sQuery);
-  } 
+  }
+  
+  findProductDescription=(sId)=> {
+    if(sId !== "")
+    {
+        this.props.history.push('/items/' + sId)
+    }
+  }   
 
   search(sQuery) {
     const url = `http://localhost:3001/getProduct/${sQuery}`;
     if(sQuery !== "")
     {
+      var res;
       this.setState({ productos:[]});
       fetch(url)
       .then(results => results.json())
       .then(data => {
-        this.setState({ productos: data.results });
-      });      
+        //Filtrado para obtener las categorías con más resultados y generar los breadcrumbs
+        res = data.available_filters[0].values.sort((b, a) => a.results - b.results);
+        this.setState({ 
+          productos: data.results,
+          breadCrumbs: res
+         });
+      });
+
     }
   };
 
@@ -46,20 +62,25 @@ class SearchResult extends Component {
   }
 
   render() {
+    //Para mostrar solo 4 productos de acuerdo a lo indicado en la descripción funcional de la aplicación
+    var canti = 4;
     return (
       <div>
           <div id="search">
             <SearchBox findProduct={this.findProduct}/>
           </div>
+          <div>
+            <Breadcrumbs breadCrumbs={this.state.breadCrumbs}/>
+          </div>
           <div className="container">
             <table className="table">
               <tbody>
               {
-                  this.state.productos.map((item, i,) =>{
+                  this.state.productos.slice(0, canti).map((item, i,) =>{
                     return (
                         <tr key={i}>
                         <td>
-                          <img src={item.thumbnail} alt={item.title}/>
+                          <img className="lstImg" src={item.thumbnail} alt={item.title} onClick={() => this.findProductDescription(item.id)}/>
                         </td>
                         <td>
                           <table>

@@ -18,7 +18,7 @@ class SearchBox extends Component {
       <div className="CommentBox">
         <div id="search">
             <a href="http://localhost:3000/">
-                <img src="MercadoLibre.png" alt="Mercado Libre"/>
+                <img src="MercadoLibre.png" className="searchImg" alt="Mercado Libre"/>
             </a>
 
             <input
