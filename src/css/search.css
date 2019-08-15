@@ -1,0 +1,50 @@
+.CommentBox {
+  width:100vw;
+  height:50px;
+  background-color: rgb(253, 228, 0);
+  color:White;
+  margin:0 auto;
+}
+
+.CommentBox > div {
+  margin:0 auto;
+  width:700px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+input[type="text"] {
+  margin:10px auto;
+  width: 100%;
+  min-width: 30px;
+  max-width: 500px;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+img {
+  border-radius: 4px;
+  padding: 5px;
+  width: 120px;
+}
+
+.button {
+  background-color: gray;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 800px){
+  #search { 
+    width: 90%;
+    align-content: center;
+  }
+  
+}
