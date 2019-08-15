@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/search.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
@@ -18,10 +17,9 @@ class Breadcrumbs extends Component {
   render() {
     //Para mostrar solo 5 categorías de breadcrumbs
     var canti = 5;
-    let path = ''
     return (
       <div>
-        <ul class="breadcrumb">
+        <ul className="breadcrumb">
         {
             this.props.breadCrumbs.slice(0, canti).map((item, i,) =>{
             return (
